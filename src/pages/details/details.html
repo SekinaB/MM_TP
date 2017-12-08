@@ -11,8 +11,12 @@
   </ion-navbar>
 
 </ion-header>
-
-
 <ion-content padding>
-
+  <ion-item>
+    <ion-thumbnail item-start>
+      <img [src]=image>
+    </ion-thumbnail>
+    <h2> {{ title }} </h2>
+    <p> {{ author }} • {{ date }} </p>
+</ion-item>
 </ion-content>

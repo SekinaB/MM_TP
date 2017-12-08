@@ -18,6 +18,7 @@
       </ion-thumbnail>
       <h2> {{ result.title }} </h2>
       <p> {{ result.author }} • {{ result.date }} </p>
+      <button ion-button clear item-end [navPush]="detailsPage" [navParams]="result"> Detail</button>
     </ion-item>
   </ion-list>
 </ion-content>
