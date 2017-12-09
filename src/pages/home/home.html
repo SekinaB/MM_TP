@@ -9,15 +9,15 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngIf="!fakeResults.length">
+    <ion-item *ngIf="!(realResults | async)?.length">
       No results
     </ion-item>
-    <ion-item *ngFor="let result of fakeResults">
+    <ion-item *ngFor="let result of realResults | async">
       <ion-thumbnail item-start>
-        <img [src]=result.image>
+        <img [src]=httpImagesresult.poster_path>
       </ion-thumbnail>
       <h2> {{ result.title }} </h2>
-      <p> {{ result.author }} • {{ result.date }} </p>
+      <p> {{ result.release_date }} </p>
       <button ion-button clear item-end [navPush]="detailsPage" [navParams]="result"> Detail</button>
     </ion-item>
   </ion-list>

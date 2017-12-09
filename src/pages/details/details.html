@@ -14,9 +14,9 @@
 <ion-content padding>
   <ion-item>
     <ion-thumbnail item-start>
-      <img [src]=image>
+      <img [src]=currentResult.poster_path>
     </ion-thumbnail>
-    <h2> {{ title }} </h2>
-    <p> {{ author }} • {{ date }} </p>
+    <h2> {{ currentResult.title }} • {{ currentResult.date }} </h2>
+    <p> {{ currentResult.overview }} </p>
 </ion-item>
 </ion-content>
