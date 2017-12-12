@@ -12,11 +12,16 @@
 
 </ion-header>
 <ion-content padding>
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img [src]=currentResult.poster_path>
-    </ion-thumbnail>
-    <h2> {{ currentResult.title }} • {{ currentResult.date }} </h2>
-    <p> {{ currentResult.overview }} </p>
-</ion-item>
+<ion-card>
+  <img src="https://image.tmdb.org/t/p/w500/{{currentResult.poster_path}}" />
+  <ion-card-content>
+    <ion-card-title>
+       {{ currentResult.title }}
+    </ion-card-title>
+    <h2> {{ currentResult.release_date | date:'MMM y' }} </h2>
+    <p>
+       {{ currentResult.overview }}
+    </p>
+  </ion-card-content>
+</ion-card>
 </ion-content>

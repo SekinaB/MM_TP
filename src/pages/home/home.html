@@ -14,10 +14,10 @@
     </ion-item>
     <ion-item *ngFor="let result of realResults | async">
       <ion-thumbnail item-start>
-        <img [src]=httpImagesresult.poster_path>
+      <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}">
       </ion-thumbnail>
       <h2> {{ result.title }} </h2>
-      <p> {{ result.release_date }} </p>
+      <p> {{result.release_date | date:'MMM y'}}</p>
       <button ion-button clear item-end [navPush]="detailsPage" [navParams]="result"> Detail</button>
     </ion-item>
   </ion-list>
