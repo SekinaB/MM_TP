@@ -78,13 +78,9 @@ export class HomePage {
   getResults($event : any) : void {
     const query: string = $event.target.value;
     if (query) {
-      this.realResults = this.discoverMovies(query);
+      this.realResults = this.fetchResults(query);
     } else {
       this.realResults = Observable.of([]);
     }
   }
-
-
-  shakeSubscription.unsubscribe();
-
 }
