@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 import { Result } from '../home/home';
 /**
  * Generated class for the DetailsPage page.
@@ -16,12 +16,8 @@ import { Result } from '../home/home';
 })
 export class DetailsPage {
   currentResult: Result;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navParams: NavParams) {
     this.currentResult = this.navParams.data;
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DetailsPage');
   }
 
 }
