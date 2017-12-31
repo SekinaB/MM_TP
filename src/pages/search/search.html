@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Find a movie
+    </ion-title>
+  </ion-navbar>
+  <ion-searchbar (ionInput)="getResults($event)"></ion-searchbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngIf="!(movieResults | async)?.length">
+      No results
+    </ion-item>
+    <ion-item *ngFor="let result of movieResults | async">
+      <ion-thumbnail item-start>
+        <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}">
+      </ion-thumbnail>
+      <h2 icon-end>
+        {{ result.title }}
+        <ion-icon *ngIf="!result.adult" small color="danger" name='alert'></ion-icon>
+      </h2>
+      <ion-row>
+        <ion-col col-6>
+          <button ion-button clear small color="primary" icon-start>
+            <ion-icon name='star'></ion-icon>
+            {{ result.vote_average }}
+          </button>
+        </ion-col>
+        <ion-col col-6 text-right>
+          <button ion-button clear small color="primary" [navPush]="detailsPage" [navParams]="result" icon-end>
+            More
+            <ion-icon name='more'></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+</ion-content>

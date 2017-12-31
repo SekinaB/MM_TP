@@ -1,24 +1,17 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Iconic Blanco
-    </ion-title>
-  </ion-navbar>
-  <ion-searchbar (ionInput)="getResults($event)"></ion-searchbar>
-</ion-header>
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-navbar>
+      <ion-title>Genres</ion-title>
+    </ion-navbar>
+  </ion-header>
 
-<ion-content padding>
-  <ion-list>
-    <ion-item *ngIf="!(realResults | async)?.length">
-      No results
-    </ion-item>
-    <ion-item *ngFor="let result of realResults | async">
-      <ion-thumbnail item-start>
-      <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}">
-      </ion-thumbnail>
-      <h2> {{ result.title }} </h2>
-      <p> {{result.release_date | date:'MMM y'}}</p>
-      <button ion-button clear item-end [navPush]="detailsPage" [navParams]="result"> Detail</button>
-    </ion-item>
-  </ion-list>
-</ion-content>
+  <ion-content>
+    <ion-list>
+      <button ion-item menuClose *ngFor="let genre of listGenres | async" [navPush]="genrePage" [navParams]="genre">
+        {{ genre.name }}
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
